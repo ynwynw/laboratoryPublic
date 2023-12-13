@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.lrms.appointment.mapper">
+
+    <update id="profileEdit" parameterType="com.nkuvr.pojo.User">
+        update sys_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="gender != null">gender = #{gender},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="updateLabuseByIdFirst" parameterType="com.li.lrms.model.labuse.Labuse">
+          update labuse
+          set first_time=#{1}
+          where lab_id=#{labId} and nowdate=#{appointDate}
+    </update>
+
+    <update id="updateLabuseByIdSecond" parameterType="com.li.lrms.model.labuse.Labuse">
+          update labuse
+          set second_time=#{1}
+          where lab_id=#{labId} and nowdate=#{appointDate}
+    </update>
+
+    <update id="updateLabuseByIdThird" parameterType="com.li.lrms.model.labuse.Labuse">
+          update labuse
+          set third_time=#{1}
+          where lab_id=#{labId} and nowdate=#{appointDate}
+    </update>
+
+    <update id="updateLabuseByIdFourth" parameterType="com.li.lrms.model.labuse.Labuse">
+          update labuse
+          set fourth_time=#{1}
+          where lab_id=#{labId} and nowdate=#{appointDate}
+    </update>
+
+</mapper>
